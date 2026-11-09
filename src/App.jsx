@@ -4,6 +4,7 @@ import { MotionConfig } from 'framer-motion'
 import Home from './pages/Home'
 import ProjectPage from './pages/ProjectPage'
 import NotFound from './pages/NotFound'
+import PopeyesExperience from './popeyes/PopeyesExperience'
 
 // Garante que ao mudar de rota a página sempre role para o topo suavemente
 function ScrollToTop() {
@@ -14,13 +15,15 @@ function ScrollToTop() {
   return null;
 }
 
-// Ao recarregar a página (F5 / Ctrl+R), volta para a home em vez de manter a rota atual
+// Ao recarregar a página (F5 / Ctrl+R), volta para a rota base
 function ReloadToHome() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   useEffect(() => {
     const [nav] = performance.getEntriesByType('navigation');
-    if (nav?.type === 'reload' && pathname !== '/') navigate('/', { replace: true });
+    if (nav?.type === 'reload' && pathname !== '/' && pathname !== '/popeyes' && pathname !== '/portfolio') {
+      navigate('/', { replace: true });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return null;
@@ -32,7 +35,12 @@ export default function App() {
       <ScrollToTop />
       <ReloadToHome />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Rota principal com o protótipo cinematográfico Popeyes Brasil */}
+        <Route path="/" element={<PopeyesExperience />} />
+        <Route path="/popeyes" element={<PopeyesExperience />} />
+        
+        {/* Portfólio de Vitor preservado integralmente */}
+        <Route path="/portfolio" element={<Home />} />
         <Route path="/projects/:slug" element={<ProjectPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

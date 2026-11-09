@@ -1,5 +1,13 @@
 export const projects = [
   {
+    slug: 'popeyes-brasil',
+    title: 'Popeyes® Brasil — Experiência Cinematográfica',
+    category: 'Website Conceitual, Direção de Arte Editorial & WebGL',
+    description: 'Protótipo premium e minimalista para a marca Popeyes Brasil. Inspirado na linguagem de estúdios interativos internacionais (Lusion, Awwwards), integrando composição editorial assimétrica, scroll horizontal pinado, expansão cinematográfica de imagem por scroll e slots arquiteturais para ativos 3D em tempo real.',
+    tech: ['React', 'GSAP ScrollTrigger', 'OGL / WebGL', 'Design Editorial', 'Motion Design'],
+    liveUrl: '/'
+  },
+  {
     slug: 'vm-intelligence',
     title: 'VM Intelligence',
     category: 'Painel Full-Stack & Pipeline de Dados Automatizado',
